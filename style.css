@@ -59,7 +59,29 @@ z-index:2;
 
 .hero h1{
 font-size:60px;
-max-width:800px;
+max-width:850px;
+font-weight:800;
+
+background:linear-gradient(
+90deg,
+#ffffff,
+#d8b4fe,
+#a855f7,
+#ffffff
+);
+
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:gradientMove 6s linear infinite;
+}
+
+@keyframes gradientMove{
+
+0%{background-position:0%}
+100%{background-position:300%}
+
 }
 
 .cta-btn{
