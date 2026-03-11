@@ -54,8 +54,13 @@ card.style.transform =
 card.addEventListener("mouseleave", () => {
 
 card.style.transform =
-"perspective(800px) rotateX(0) rotateY(0) scale(1)"
+"perspective(800px) rotateX(0) rotateY(0) scale(1)"})
 
 })
 
+const glow = document.querySelector(".glow")
+
+document.addEventListener("mousemove", e=>{
+glow.style.left = e.clientX + "px"
+glow.style.top = e.clientY + "px"
 })
