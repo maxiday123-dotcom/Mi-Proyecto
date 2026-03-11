@@ -176,3 +176,20 @@ pointer-events:none;
 z-index:0;
 transform:translate(-50%,-50%);
 }
+
+.main-header{
+position:fixed;
+top:0;
+width:100%;
+padding:25px 80px;
+z-index:1000;
+transition:.35s;
+}
+
+.main-header.scrolled{
+
+background:rgba(10,10,15,.85);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(255,255,255,.05);
+
+}
