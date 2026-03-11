@@ -147,6 +147,10 @@ transform:scale(.6);
 transition:.4s;
 }
 
+.fan-images img{
+box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
 /* HOVER */
 
 .card:hover .fan-images img:nth-child(1){
