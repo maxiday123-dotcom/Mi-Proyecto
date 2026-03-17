@@ -73,50 +73,6 @@ if (window.tsParticles) {
         enable: true,
         speed: 1
       },
-
-      size: { value: 2 },
-
-      opacity: { value: 0.8 }
-
-    },
-
-    detectRetina: true
-
-  }).catch((err) => console.warn("tsParticles:", err));
-
-}
-
-
-// ============================
-// GSAP Animaciones
-// ============================
-
-if (window.gsap) {
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  gsap.from(".hero h1", {
-    y: 80,
-    opacity: 0,
-    duration: 1.2,
-    ease: "power3.out"
-  });
-
-  gsap.from(".cta-btn", {
-    y: 30,
-    opacity: 0,
-    delay: 0.6,
-    duration: 0.9,
-    ease: "power3.out"
-  });
-
-  gsap.utils.toArray(".card").forEach((card, i) => {
-
-    gsap.from(card, {
-      y: 40,
-      opacity: 0,
-      duration: 0.8,
-      delay: 0.12 * i,
       ease: "power3.out",
 
       scrollTrigger: {
@@ -129,6 +85,34 @@ if (window.gsap) {
   });
 
 }
+
+
+// ============================
+// Efecto 3D en cards
+// ============================
+
+document.querySelectorAll(".card").forEach((card) => {
+
+  card.style.willChange = "transform";
+
+  card.addEventListener("mousemove", (e) => {
+
+    const rect = card.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = -(y - centerY) / 14;
+    const rotateY = (x - centerX) / 14;
+
+    card.style.transform =
+      `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.04)`;
+
+  });
+
   card.addEventListener("mouseleave", () => {
 
     card.style.transition = "transform 0.35s ease";
